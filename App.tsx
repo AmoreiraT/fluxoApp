@@ -1,20 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
+import { Provider } from 'react-native-paper';
+import { InputField } from './src/shared/components/InputField';
+import { NeumorphicButton } from './src/shared/components/NeumorphicButton';
+import { ThemeProvider } from './src/themes';
 
-export default function App() {
+const App: React.FC = () => {
+  const [email, setEmail] = React.useState('');
+  const [pass, setPass] = React.useState('');
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider>
+      <ThemeProvider>
+        <View style={{ padding: 16 }}>
+          <InputField
+            label="Email"
+            value={email}
+            onChange={setEmail}
+            type="text"
+          />
+          <InputField
+            label="Senha"
+            value={pass}
+            onChange={setPass}
+            type="password"
+          />
+          <NeumorphicButton title="Entrar" onPress={() => { }} />
+        </View>
+      </ThemeProvider>
+    </Provider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
