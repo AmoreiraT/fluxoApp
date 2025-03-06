@@ -35,7 +35,7 @@ export const InputField = ({
                 // height: '50%',
                 // justifyContent: 'center',
                 backgroundColor: theme.colors.background, // Usar a cor de fundo do tema
-                borderRadius: 30,
+                borderRadius: 25,
                 overflow: 'hidden',
                 flexDirection: "column",
                 justifyContent: "flex-start",
@@ -56,7 +56,7 @@ export const InputField = ({
                 paddingHorizontal: 40,
                 gap: 10,
                 paddingTop: 20,
-                paddingBottom: 60,
+                // paddingBottom: 60,
                 display: 'flex',
                 width: '100%',
                 ...theme.colors.elevation, // Adicionar sombras baseadas no tema (se definido)
@@ -68,7 +68,7 @@ export const InputField = ({
             <PaperTextInput
                 label={label}
                 value={value}
-                mode='outlined'
+                // mode='outlined'
                 onChangeText={onChange}
                 secureTextEntry={type === 'password' && !showPassword}
                 right={

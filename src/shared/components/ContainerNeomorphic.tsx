@@ -43,6 +43,14 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
             display: 'flex',
             width: '100%',
             ...theme.colors.elevation, // Adicionar sombras baseadas no tema (se definido)
+            shadowColor: theme.extendedColors[1].color,
+            shadowRadius: 30,
+            shadowOpacity: 0.9,
+            shadowOffset: {
+                width: 28,
+                height: 28,
+            },
+            boxShadow: '-2px -20px 20px 10px #D1D9E6',
         },
     });
 
