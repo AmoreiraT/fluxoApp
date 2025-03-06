@@ -21,96 +21,70 @@ The `src` directory contains the main application code organized as follows:
 
 ```
 src/
-├── components/            # Reusable UI components
-│   ├── common/           # Shared components across the app
-│   │   ├── buttons/      # Button components
-│   │   ├── forms/        # Form-related components
-│   │   ├── layout/       # Layout components
-│   │   └── typography/   # Text and typography components
-│   └── specific/         # Feature-specific components
-│
-├── screens/              # Screen components
-│   ├── auth/            # Authentication screens
-│   ├── home/            # Home screen and related screens
-│   ├── profile/         # User profile screens
-│   └── settings/        # Application settings screens
-│
-├── navigation/           # Navigation configuration
-│   ├── stacks/          # Stack navigators
-│   ├── tabs/            # Tab navigators
-│   └── NavigationConfig.ts  # Main navigation configuration
-│
-├── services/            # API and external services
-│   ├── api/            # API clients and endpoints
-│   ├── auth/           # Authentication services
-│   └── storage/        # Local storage services
-│
-├── core/               # Core business logic
-│   ├── hooks/         # Custom React hooks
-│   ├── context/       # React Context providers
-│   └── utils/         # Utility functions
-│
-├── assets/            # Static assets
-│   ├── images/        # Image files
-│   ├── fonts/         # Custom fonts
-│   └── icons/         # Icon assets
-│
-├── constants/         # Application constants
-│   ├── theme.ts      # Theme configuration
-│   ├── config.ts     # App configuration
-│   └── api.ts        # API endpoints
-│
-├── types/            # TypeScript type definitions
-│   ├── models/       # Data models
-│   └── api/          # API types
-│
-└── App.tsx           # Application entry point
+├── @types
+│   ├── environment.d.ts
+│   └── theme.d.ts
+├── core
+│   ├── domain
+│   │   ├── command
+│   │   │   ├── Command.ts
+│   │   │   └── useCreateCommand.ts
+│   │   ├── repository
+│   │   │   ├── IRepository.ts
+│   │   │   └── useCreateRepository.tsx
+│   │   └── store
+│   │       ├── ObservableStore.ts
+│   │       └── StoreFactory.ts
+│   ├── error
+│   │   ├── api.ts
+│   │   ├── index.ts
+│   │   ├── status.ts
+│   │   ├── timeout.ts
+│   │   └── unknown.ts
+│   ├── infrastructure
+│   │   └── http
+│   │       ├── protocols
+│   │       │   ├── index.ts
+│   │       │   ├── method.ts
+│   │       │   ├── request.ts
+│   │       │   ├── response.ts
+│   │       │   ├── status-code.ts
+│   │       │   └── url.ts
+│   │       ├── queryClient.ts
+│   │       ├── useFocusManager.ts
+│   │       ├── useHttpClient.ts
+│   │       └── useOnlineManager.ts
+│   └── model
+│       └── baseTypes.ts
+├── features
+│   └── auth
+│       ├── domain
+│       │   ├── entities
+│       │   │   └── User.ts
+│       │   ├── repositories
+│       │   │   └── AuthRepository.ts
+│       │   └── usecases
+│       │       └── LoginUseCase.ts
+│       ├── hooks
+│       │   ├── useAuth.ts
+│       │   └── useAuthRepository.ts
+│       ├── infrastructure
+│       │   └── repositories
+│       │       └── AuthRepositoryImpl.ts
+│       └── presentation
+│           ├── components
+│           └── screens
+│               └── LoginScreen.tsx
+├── shared
+│   └── components
+│       ├── InputField.tsx
+│       └── NeumorphicButton.tsx
+└── themes
+    ├── darkTheme.ts
+    ├── index.ts
+    ├── lightTheme.ts
+    ├── shadows.ts
+    ├── themeConfig.ts
+    ├── themeProvider.tsx
+    └── typography.ts
 ```
-
-### 🔍 Key Directories
-
-#### `components/`
-Contains all reusable UI components. Divided into:
-- `common/`: Shared components used across multiple features
-- `specific/`: Components tied to specific features
-
-#### `screens/`
-Contains the main screen components that represent full pages in the app:
-- `auth/`: Login, registration, and password recovery screens
-- `home/`: Main application screens
-- `profile/`: User profile related screens
-- `settings/`: Application settings screens
-
-#### `navigation/`
-Handles all navigation-related configuration:
-- `stacks/`: Stack navigator configurations
-- `tabs/`: Tab navigator configurations
-- `NavigationConfig.ts`: Main navigation setup
-
-#### `services/`
-Contains all external service integrations:
-- `api/`: API client configuration and endpoints
-- `auth/`: Authentication service integration
-- `storage/`: Local storage utilities
-
-#### `core/`
-Contains the core business logic:
-- `hooks/`: Custom React hooks
-- `context/`: React Context providers
-- `utils/`: Helper functions and utilities
-
-### 📝 Coding Standards
-
-- Components follow a consistent file structure
-- Each component has its own directory with:
-  - Component file (`.tsx`)
-  - Styles file (`.styles.ts`)
-  - Tests file (`.test.tsx`)
-  - Index file for exports
-
-### 🔨 Development Guidelines
-
-1. Place new components in appropriate directories based on their usage
-2. Follow the established file naming conventions
-3. Create proper type definitions in the `types` directory
-4. Maintain separation of concerns between components, services, and business logic

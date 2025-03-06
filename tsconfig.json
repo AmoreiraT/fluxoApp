@@ -2,7 +2,10 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
    "strict": true,
-    "baseUrl": ".",
+       "jsx": "react-native",
+    "types": ["@rnmapbox/maps"],
+
+    // "baseUrl": ".",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "paths": {
@@ -13,6 +16,8 @@
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/@types/**/*.d.ts"
+
   ]
 }

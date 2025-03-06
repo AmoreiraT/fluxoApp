@@ -1,7 +1,6 @@
 // typography.ts
-import { createTheme } from '@mui/material/styles';
 
-export const typographyTheme = createTheme({
+export const typographyTheme = {
     typography: {
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
         fontSize: 14,
@@ -76,4 +75,4 @@ export const typographyTheme = createTheme({
             textTransform: 'uppercase',
         },
     },
-});
+};

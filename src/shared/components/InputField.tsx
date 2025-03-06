@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC, useState } from 'react';
 import { Text, View } from 'react-native';
 import { MD2LightTheme, TextInput as PaperTextInput } from 'react-native-paper';
 
@@ -11,7 +11,7 @@ interface InputFieldProps {
     helperText?: string | null;
 }
 
-export const InputField: React.FC<InputFieldProps> = ({
+export const InputField: FC<InputFieldProps> = ({
     label,
     value,
     onChange,
@@ -19,7 +19,7 @@ export const InputField: React.FC<InputFieldProps> = ({
     error,
     helperText,
 }) => {
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);

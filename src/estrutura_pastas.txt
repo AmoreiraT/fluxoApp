@@ -1,0 +1,70 @@
+.
+├── @types
+│   ├── environment.d.ts
+│   └── theme.d.ts
+├── core
+│   ├── domain
+│   │   ├── command
+│   │   │   ├── Command.ts
+│   │   │   └── useCreateCommand.ts
+│   │   ├── repository
+│   │   │   ├── IRepository.ts
+│   │   │   └── useCreateRepository.tsx
+│   │   └── store
+│   │       ├── ObservableStore.ts
+│   │       └── StoreFactory.ts
+│   ├── error
+│   │   ├── api.ts
+│   │   ├── index.ts
+│   │   ├── status.ts
+│   │   ├── timeout.ts
+│   │   └── unknown.ts
+│   ├── infrastructure
+│   │   └── http
+│   │       ├── protocols
+│   │       │   ├── index.ts
+│   │       │   ├── method.ts
+│   │       │   ├── request.ts
+│   │       │   ├── response.ts
+│   │       │   ├── status-code.ts
+│   │       │   └── url.ts
+│   │       ├── queryClient.ts
+│   │       ├── useFocusManager.ts
+│   │       ├── useHttpClient.ts
+│   │       └── useOnlineManager.ts
+│   └── model
+│       └── baseTypes.ts
+├── estrutura_pastas.txt
+├── features
+│   └── auth
+│       ├── domain
+│       │   ├── entities
+│       │   │   └── User.ts
+│       │   ├── repositories
+│       │   │   └── AuthRepository.ts
+│       │   └── usecases
+│       │       └── LoginUseCase.ts
+│       ├── hooks
+│       │   ├── useAuth.ts
+│       │   └── useAuthRepository.ts
+│       ├── infrastructure
+│       │   └── repositories
+│       │       └── AuthRepositoryImpl.ts
+│       └── presentation
+│           ├── components
+│           └── screens
+│               └── LoginScreen.tsx
+├── shared
+│   └── components
+│       ├── InputField.tsx
+│       └── NeumorphicButton.tsx
+└── themes
+    ├── darkTheme.ts
+    ├── index.ts
+    ├── lightTheme.ts
+    ├── shadows.ts
+    ├── themeConfig.ts
+    ├── themeProvider.tsx
+    └── typography.ts
+
+27 directories, 41 files

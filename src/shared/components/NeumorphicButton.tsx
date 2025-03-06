@@ -1,6 +1,6 @@
 // NeumorphicButton.tsx
-import { Button } from '@mui/material';
-import React from 'react';
+import { FC, useContext } from 'react';
+import { Button } from 'react-native-paper';
 import { ThemeContext } from '../../themes/themeProvider';
 
 interface NeumorphicButtonProps {
@@ -8,25 +8,27 @@ interface NeumorphicButtonProps {
     onPress: () => void;
 }
 
-export const NeumorphicButton: React.FC<NeumorphicButtonProps> = ({ title, onPress }) => {
-    const { theme } = React.useContext(ThemeContext);
+export const NeumorphicButton: FC<NeumorphicButtonProps> = ({ title, onPress }) => {
+    const { theme } = useContext(ThemeContext);
 
     return (
         <Button
-            variant="contained"
-            onClick={onPress}
-            sx={{
-                backgroundColor: theme.palette.primary.main,
+            mode="contained"
+            onPress={onPress}
+            background={theme.palettes.primary}
+            
+            style={{
+                // padding: '12px 24px',
+                
                 borderRadius: '12px',
-                padding: '12px 24px',
-                boxShadow: theme.shadows[1],
-                '&:hover': {
-                    backgroundColor: theme.palette.primary.dark,
-                },
-                '& .MuiButton-label': {
-                    fontWeight: 'bold',
-                    color: theme.palette.primary.contrastText,
-                },
+                // boxShadow: theme.shadows[1],
+                // '&:hover': {
+                //     backgroundColor: theme.palette.primary.dark,
+                // },
+                // '& .MuiButton-label': {
+                //     fontWeight: 'bold',
+                //     color: theme.palette.primary.contrastText,
+                // },
             }}
         >
             {title}

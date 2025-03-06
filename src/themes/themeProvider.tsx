@@ -1,30 +1,59 @@
-// themeProvider.tsx
-import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
-import React, { createContext, useContext, useState } from 'react';
-import { darkTheme, lightTheme } from '.';
+import { createContext, useContext, useState } from 'react';
+import { PaperProvider } from 'react-native-paper';
+import { customTheme } from './customTheme';
 
 export const ThemeContext = createContext<{
-    theme: typeof lightTheme | typeof darkTheme;
+    theme: typeof customTheme;
     toggleTheme: () => void;
+    setContrast: (contrast: 'high' | 'medium' | 'default') => void;
 }>({
-    theme: lightTheme,
+    theme: customTheme,
     toggleTheme: () => { },
+    setContrast: () => { },
 });
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [mode, setMode] = useState<'light' | 'dark'>('light');
+    const [contrast, setContrast] = useState<'high' | 'medium' | 'default'>('default');
 
     const toggleTheme = () => {
-        setIsDarkMode(!isDarkMode);
+        setMode(prev => prev === 'light' ? 'dark' : 'light');
     };
 
-    const theme = isDarkMode ? darkTheme : lightTheme;
+    const setContrastLevel = (level: 'high' | 'medium' | 'default') => {
+        setContrast(level);
+    };
+
+    const getThemeScheme = () => {
+        if (mode === 'light') {
+            switch (contrast) {
+                case 'high': return customTheme.schemes['light-high-contrast'];
+                case 'medium': return customTheme.schemes['light-medium-contrast'];
+                default: return customTheme.schemes.light;
+            }
+        } else {
+            switch (contrast) {
+                case 'high': return customTheme.schemes['dark-high-contrast'];
+                case 'medium': return customTheme.schemes['dark-medium-contrast'];
+                default: return customTheme.schemes.dark;
+            }
+        }
+    };
+
+    const theme = {
+        ...customTheme,
+        dark: mode === 'dark',
+        colors: {
+            ...getThemeScheme(),
+            ...customTheme.colors,
+        },
+    };
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <MuiThemeProvider theme={theme}>
+        <ThemeContext.Provider value={{ theme, toggleTheme, setContrast: setContrastLevel }}>
+            <PaperProvider theme={theme}>
                 {children}
-            </MuiThemeProvider>
+            </PaperProvider>
         </ThemeContext.Provider>
     );
 };

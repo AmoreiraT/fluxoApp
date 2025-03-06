@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { InputField } from '../../../../shared/components/InputField';
 import { NeumorphicButton } from '../../../../shared/components/NeumorphicButton';
@@ -27,14 +27,12 @@ const LoginScreen = () => {
                 label="Email"
                 value={email}
                 onChange={setEmail}
-                key={'email-input'}
                 type="text"
             />
             <InputField
                 label="Senha"
                 value={password}
                 onChange={setPassword}
-                key={'password-input'}
                 type="password"
                 // secureTextEntry
             />
