@@ -1,6 +1,7 @@
-import { FC, useState } from 'react';
+import { FC, useContext, useState } from 'react';
 import { Text, View } from 'react-native';
-import { MD2LightTheme, TextInput as PaperTextInput } from 'react-native-paper';
+import { TextInput as PaperTextInput } from 'react-native-paper';
+import { ThemeContext } from '../../themes/themeProvider';
 
 interface InputFieldProps {
     label: string;
@@ -20,6 +21,7 @@ export const InputField: FC<InputFieldProps> = ({
     helperText,
 }) => {
     const [showPassword, setShowPassword] = useState(false);
+    const { theme } = useContext(ThemeContext);
 
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
@@ -40,8 +42,13 @@ export const InputField: FC<InputFieldProps> = ({
                         />
                     ) : undefined
                 }
-                style={{ backgroundColor: 'white' }}
-                theme={MD2LightTheme}
+                style={{
+                    backgroundColor: theme.colors.surface,
+                    paddingHorizontal: 20,
+                    paddingVertical: 5,
+                    borderRadius: 15,
+                 }}
+                theme={theme}
             />
             {error && <Text style={{ color: 'red' }}>{error}</Text>}
             {helperText && <Text style={{ color: 'gray' }}>{helperText}</Text>}

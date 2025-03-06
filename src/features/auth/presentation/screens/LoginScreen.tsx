@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { ContainerNeomorphic } from '../../../../shared/components/ContainerNeomorphic';
 import { InputField } from '../../../../shared/components/InputField';
 import { NeumorphicButton } from '../../../../shared/components/NeumorphicButton';
 import { useLoginUseCase } from '../../domain/usecases/LoginUseCase';
@@ -22,6 +23,8 @@ const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
+            <ContainerNeomorphic>
+
             <Text style={styles.title}>Fluxo</Text>
             <InputField
                 label="Email"
@@ -37,6 +40,7 @@ const LoginScreen = () => {
                 // secureTextEntry
             />
             <NeumorphicButton title="Entrar" onPress={handleLogin} />
+            </ContainerNeomorphic>
         </View>
     );
 };
