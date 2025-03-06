@@ -1,7 +1,7 @@
 // NeumorphicButton.tsx
 import { FC, useContext } from 'react';
 import { Button } from 'react-native-paper';
-import { ThemeContext } from '../../themes/themeProvider';
+import { ThemeContext } from '../../themes/themeProvider.tsx';
 
 interface NeumorphicButtonProps {
     title: string;
