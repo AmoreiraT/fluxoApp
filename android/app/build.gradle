@@ -94,7 +94,7 @@ packagingOptions {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.fluxoapp"
+    namespace 'fluxo.ath.app'
     defaultConfig {
         applicationId 'fluxo.ath.app'
         minSdkVersion rootProject.ext.minSdkVersion

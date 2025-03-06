@@ -13,8 +13,9 @@ install! 'cocoapods',
 
 prepare_react_native_project!
 
-# @generated begin @rnmapbox/maps-rnmapboxmapsimpl - expo prebuild (DO NOT MODIFY) sync-774bf65a57e8d77f32a04e72d0a4e0f930260aed
-$RNMapboxMapsVersion = '11.0.0'
+# @generated begin @rnmapbox/maps-rnmapboxmapsimpl - expo prebuild (DO NOT MODIFY) sync-d6938c5bc4743634daa19164069a544f1d773a28
+$RNMapboxMapsDownloadToken = 'sk.eyJ1IjoiYW1vcmVpcmF0IiwiYSI6ImNtN3d3YW5jazBhbXoybXBxZTRnb3oxaGMifQ.eqGM04Ut-fd_F6Yp4cFJwg'
+$RNMapboxMapsVersion = '11.8.0'
 # @generated end @rnmapbox/maps-rnmapboxmapsimpl
 target 'fluxoApp' do
   use_expo_modules!
