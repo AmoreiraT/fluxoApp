@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import { PaperProvider } from 'react-native-paper';
-import { customTheme } from './customTheme.ts';
+import { customTheme } from './customTheme';
 
 export const ThemeContext = createContext<{
     theme: typeof customTheme;

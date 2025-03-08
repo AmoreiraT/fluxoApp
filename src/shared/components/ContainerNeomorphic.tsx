@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { StyleSheet, View } from 'react-native';
-import { ThemeContext } from "../../themes/themeProvider.tsx";
+import { ThemeContext } from "../../themes/themeProvider";
 
 interface ContainerNeomorphicProps {
     children: React.ReactNode;
@@ -37,7 +37,7 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
             
             // backgroundColor: theme.colors.surface, // Usar a cor de superfície do tema
             paddingHorizontal: 40,
-            gap: 10,
+            gap: 20,
             paddingTop: 20,
             paddingBottom: 60,
             display: 'flex',

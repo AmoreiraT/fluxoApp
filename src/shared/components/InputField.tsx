@@ -1,7 +1,9 @@
 import { useContext, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TextInput as PaperTextInput } from 'react-native-paper';
-import { ThemeContext } from '../../themes/themeProvider.tsx';
+import { typographyTheme } from '../../themes';
+import { lightShadows } from '../../themes/shadows';
+import { ThemeContext } from '../../themes/themeProvider';
 
 interface InputFieldProps {
     label: string;
@@ -47,18 +49,20 @@ export const InputField = ({
                     width: 28,
                     height: 28,
                 },
-                boxShadow: '-2px -20px 20px 10px #D1D9E6',
+            boxShadow: lightShadows[3],
     
             },
             neumorphicContainer: {
                 
                 // backgroundColor: theme.colors.surface, // Usar a cor de superfície do tema
                 paddingHorizontal: 40,
-                gap: 10,
-                paddingTop: 20,
-                // paddingBottom: 60,
+                // gap: 10,
+                // paddingTop: 20,
+                // paddingBottom: 6,
                 display: 'flex',
                 width: '100%',
+                boxShadow: lightShadows[12],
+                ...typographyTheme.fonts.titleMedium,
                 ...theme.colors.elevation, // Adicionar sombras baseadas no tema (se definido)
             },
         });
@@ -68,8 +72,10 @@ export const InputField = ({
             <PaperTextInput
                 label={label}
                 value={value}
-                // mode='outlined'
+                mode='flat'
+                outlineColor={theme.colors.primary}
                 onChangeText={onChange}
+                
                 secureTextEntry={type === 'password' && !showPassword}
                 right={
                     type === 'password' ? (
@@ -80,6 +86,7 @@ export const InputField = ({
                     ) : undefined
                 }
                 style={{
+                    ...styles.neumorphicContainer,
                     backgroundColor: theme.colors.surface,
                     paddingHorizontal: 20,
                     paddingVertical: 5,

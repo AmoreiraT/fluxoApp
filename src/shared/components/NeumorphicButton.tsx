@@ -1,7 +1,8 @@
 // NeumorphicButton.tsx
 import { FC, useContext } from 'react';
 import { Button } from 'react-native-paper';
-import { ThemeContext } from '../../themes/themeProvider.tsx';
+import { typographyTheme } from '../../themes';
+import { ThemeContext } from '../../themes/themeProvider';
 
 interface NeumorphicButtonProps {
     title: string;
@@ -16,11 +17,15 @@ export const NeumorphicButton: FC<NeumorphicButtonProps> = ({ title, onPress }) 
             mode="contained"
             onPress={onPress}
             background={theme.palettes.primary}
-            
+            theme={theme}
             style={{
                 // padding: '12px 24px',
                 
                 borderRadius: '12px',
+                ...typographyTheme.fonts.displayLarge,
+                backgroundColor: theme.colors.primary,
+                
+                // color: theme.colors.onPrimary,
                 // boxShadow: theme.shadows[1],
                 // '&:hover': {
                 //     backgroundColor: theme.palette.primary.dark,

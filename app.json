@@ -34,15 +34,8 @@
       [
         "@rnmapbox/maps",
         {
-          "RNMapboxMapsDownloadToken":"sk.eyJ1IjoiYW1vcmVpcmF0IiwiYSI6ImNtN3d3YW5jazBhbXoybXBxZTRnb3oxaGMifQ.eqGM04Ut-fd_F6Yp4cFJwg",
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoiYW1vcmVpcmF0IiwiYSI6ImNtN3d3YW5jazBhbXoybXBxZTRnb3oxaGMifQ.eqGM04Ut-fd_F6Yp4cFJwg",
           "RNMapboxMapsVersion": "11.8.0"
-          // "ios": {
-          //   "mapsApiKey": "pk.eyJ1IjoiYW1vcmVpcmF0IiwiYSI6ImNqZ2Q0MTc2ZjAwb3MzMnFrbzhldTB1ZTgifQ.UqlV5FlUH5yC68b_S2j5hg"
-          // },
-          // "android": {
-          //   "mapsApiKey": "pk.eyJ1IjoiYW1vcmVpcmF0IiwiYSI6ImNqZ2Q0MTc2ZjAwb3MzMnFrbzhldTB1ZTgifQ.UqlV5FlUH5yC68b_S2j5hg"
-          // },
-          // "accessToken": "pk.eyJ1IjoiYW1vcmVpcmF0IiwiYSI6ImNqZ2Q0MTc2ZjAwb3MzMnFrbzhldTB1ZTgifQ.UqlV5FlUH5yC68b_S2j5hg"
         }
       ],
       [
@@ -50,7 +43,8 @@
         {
           "locationWhenInUsePermission": "Show current location on map."
         }
-      ]
+      ],
+      "expo-font"
     ],
     "extra": {
       "eas": {

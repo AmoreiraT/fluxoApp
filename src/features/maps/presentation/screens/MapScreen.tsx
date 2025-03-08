@@ -2,7 +2,7 @@
 import Mapbox from '@rnmapbox/maps';
 import { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useThemeContext } from '../../../../themes/index.ts';
+import { useThemeContext } from '../../../../themes/index';
 
 Mapbox.setAccessToken('pk.eyJ1IjoiYW1vcmVpcmF0IiwiYSI6ImNqZ2Q0MTc2ZjAwb3MzMnFrbzhldTB1ZTgifQ.UqlV5FlUH5yC68b_S2j5hg');
 interface MapScreenProps {

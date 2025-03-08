@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'react-native-paper';
 import { CustomTheme } from '../@types/theme';
-import { themeConfig } from './themeConfig.ts';
-import { typographyTheme } from './typography.ts';
+import { themeConfig } from './themeConfig';
+import { typographyTheme } from './typography';
 
 export interface ThemeMode {
     mode: 'light' | 'dark';
@@ -89,6 +89,7 @@ export const customTheme: CustomTheme =  {
         caption: typographyTheme.typography.caption,
         overline: typographyTheme.typography.overline,
     },
+    fonts: { ...typographyTheme.fonts},
     palettes: themeConfig.palettes,
     coreColors: themeConfig.coreColors,
     extendedColors: themeConfig.extendedColors,
