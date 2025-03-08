@@ -1,14 +1,16 @@
 {
+  
   "expo": {
     "name": "fluxoApp",
     "slug": "fluxoApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/svg/logo.svg",
+    "assetBundlePatterns": ["**/*"],
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./src/assets/svg/logo.svg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./src/assets/svg/logo.svg",
         "backgroundColor": "#ffffff"
       },
       "permissions": [
@@ -28,7 +30,7 @@
       "package": "fluxo.ath.app"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/svg/logo.svg"
     },
     "plugins": [
       [
@@ -44,7 +46,11 @@
           "locationWhenInUsePermission": "Show current location on map."
         }
       ],
-      "expo-font"
+      ["expo-font", {
+
+      }]
+
+   
     ],
     "extra": {
       "eas": {

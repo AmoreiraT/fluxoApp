@@ -23,14 +23,14 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
             flexDirection: "column",
             justifyContent: "flex-start",
             ...theme.colors.elevation,
-            shadowColor: theme.extendedColors[1].color,
+            shadowColor: theme.extendedColors[0].color,
             shadowRadius: 30,
             shadowOpacity: 0.9,
             shadowOffset: {
                 width: 28,
                 height: 28,
             },
-            boxShadow: '-2px -20px 20px 10px #D1D9E6',
+            boxShadow: '-2px -8px 20px 10px #D1D9E6',
 
         },
         neumorphicContainer: {
@@ -45,12 +45,12 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
             ...theme.colors.elevation, // Adicionar sombras baseadas no tema (se definido)
             shadowColor: theme.extendedColors[1].color,
             shadowRadius: 30,
-            shadowOpacity: 0.9,
+            shadowOpacity: 0.6,
             shadowOffset: {
                 width: 28,
                 height: 28,
             },
-            boxShadow: '-2px -20px 20px 10px #D1D9E6',
+            boxShadow: '-20px -20px 2px 10px #D1D9E6',
         },
     });
 
