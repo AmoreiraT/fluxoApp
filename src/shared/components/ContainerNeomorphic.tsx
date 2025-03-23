@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { StyleSheet, View } from 'react-native';
 import { ThemeContext } from "../../themes/themeProvider";
+import { CustomLinearGradient } from "./CustomLinearGradient";
 
 interface ContainerNeomorphicProps {
     children: React.ReactNode;
@@ -23,14 +24,18 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
             flexDirection: "column",
             justifyContent: "flex-start",
             ...theme.colors.elevation,
-            shadowColor: theme.extendedColors[0].color,
+            shadowColor: theme.extendedColors[2].color,
             shadowRadius: 30,
-            shadowOpacity: 0.9,
+            shadowOpacity: 0.8,
+            borderStartColor: theme.extendedColors[3].color,
+            borderEndColor: theme.extendedColors[3].color,
+            borderTopColor: theme.extendedColors[2].color,
+            borderWidth: 1,
             shadowOffset: {
                 width: 28,
                 height: 28,
             },
-            boxShadow: '-2px -8px 20px 10px #D1D9E6',
+            boxShadow: `2px -15 25 10px ${theme.extendedColors[2].color}`,
 
         },
         neumorphicContainer: {
@@ -43,22 +48,30 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
             display: 'flex',
             width: '100%',
             ...theme.colors.elevation, // Adicionar sombras baseadas no tema (se definido)
-            shadowColor: theme.extendedColors[1].color,
+            shadowColor: theme.extendedColors[2].color,
             shadowRadius: 30,
             shadowOpacity: 0.6,
             shadowOffset: {
                 width: 28,
                 height: 28,
             },
-            boxShadow: '-20px -20px 2px 10px #D1D9E6',
+
+            boxShadow: `-20 -20 2 10 ${theme.extendedColors[2].color}`,
         },
     });
 
     return (
         <View style={styles.container}>
+              <CustomLinearGradient
+                colors={[theme.colors.primary, theme.colors.secondary]}
+                steps={50}
+                style={styles.container}
+            >
+                
             <View style={styles.neumorphicContainer}>
                 {children}
             </View>
+                    </CustomLinearGradient>
         </View>
     );
 };

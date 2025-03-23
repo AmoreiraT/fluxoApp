@@ -28,8 +28,8 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({ onTabPress }) => {
     return (
         
       
-        <CustomLinearGradient colors={['#4c669f', '#192f6a']}
-            steps={100}
+        <CustomLinearGradient colors={['#CBD5E9D8', '#192f6a']}
+            steps={5}
 
             style={styles.button}
         >
@@ -55,18 +55,20 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({ onTabPress }) => {
 
 const styles = StyleSheet.create({
     container: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
+        // position: 'absolute',
+        // bottom: 0,
+        // left: 0,
+        // right: 0,
         height: 80,
         borderRadius: 40,
-        overflow: 'hidden',
-        alignItems: 'center',
-        justifyContent: 'center',
+        // overflow: 'hidden',
+        // alignItems: 'center',
+        // justifyContent: 'center',
         elevation: 10,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: -3 },
+        shadowColor: '#0000',
+        shadowOffset: { width: -28.615385055541992, height: -28.615385055541992 },
+
+        // shadowOffset: { width: 0, height: -3 },
         shadowRadius: 10,
         shadowOpacity: 0.1,
     },
@@ -75,11 +77,11 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 25,
         overflow: 'hidden',
+
     },
     navBar: {
         flexDirection: 'row',
         width: '100%',
-        backgroundColor: 'transparent',
 
         paddingHorizontal: 20,
         alignItems: 'center',
@@ -89,7 +91,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
-        backgroundColor: 'transparent',
 
     },
 });

@@ -5,6 +5,7 @@ import { IconSource } from 'react-native-paper/lib/typescript/components/Icon';
 import { CustomTheme } from '../../@types/theme';
 import { lightShadows, typographyTheme } from '../../themes';
 import { ThemeContext } from '../../themes/themeProvider';
+import { CustomLinearGradient } from './CustomLinearGradient';
 
 interface NeumorphicButtonProps {
     title: string;
@@ -96,7 +97,7 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
                 height: 2,
             },
             opacity: disabled ? 0.6 : 0.8,
-            backgroundColor: buttonColor,
+            // backgroundColor: buttonColor,
             filter: 'blur(200), opacity(0.9)',
             ...theme.colors.elevation,
         },
@@ -105,26 +106,27 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
     const buttonStyles = StyleSheet.create({
         button: {
             backgroundColor: primary20,
-            backfaceVisibility: 'hidden',
+            // backfaceVisibility: 'hidden',
             paddingVertical: 8,
             paddingHorizontal: 20,
             opacity: disabled ? 0.6 : 0.8,
             boxShadow: lightShadows[12],
             elevation: disabled ? 0 : 4,
-            textTransform: 'uppercase',
             ...theme.colors.elevation,
-            shadowColor: primary80,
-
+            shadowColor: buttonColor,
             shadowRadius: 30,
-            shadowOpacity: 0.9,
-            shadowOffset: {
-                width: 28,
-                height: 28,
-            },
+            shadowOpacity: 0.6,
+            shadowOffset: { width: -28.615385055541992, height: -28.615385055541992 },
+
             ...(mode === 'outline' && { borderWidth: 1, borderColor }),
         },
         label: {
             color: textColor,
+            textShadowColor: primary80,
+            shadowOffset: { width: -28.615385055541992, height: -28.615385055541992 },
+
+            textShadowOffset: { width: -28.615385055541992, height: -28.615385055541992 },
+
             ...typographyTheme.fonts.titleLarge,
             textTransform: 'uppercase',
         },
@@ -134,6 +136,12 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
 
     return (
         <View style={wrapperStyles.wrapper}>
+        <CustomLinearGradient
+                colors={[primary80, buttonColor]}
+                steps={50}
+                style={buttonStyles.button}
+        >
+
             <Button
                 onPress={onPress}
                 mode={paperButtonMode}
@@ -143,9 +151,10 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
                 icon={icon}
                 labelStyle={buttonStyles.label}
                 style={buttonStyles.button}
-            >
+                >
                 {title}
             </Button>
+                </CustomLinearGradient>
         </View>
     );
 });
