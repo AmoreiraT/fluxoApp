@@ -29,23 +29,19 @@ export const CustomLinearGradient: React.FC<CustomLinearGradientProps> = ({
         const r = Math.round(color1.r + (color2.r - color1.r) * ratio);
         const g = Math.round(color1.g + (color2.g - color1.g) * ratio);
         const b = Math.round(color1.b + (color2.b - color1.b) * ratio);
-        gradientColors.push(`rgba(${r}, ${g}, ${b}, 0.5)`);
+        gradientColors.push(`rgba(${r}, ${g}, ${b}, 0.8)`);
     }
 
     const styles = StyleSheet.create({
         container: {
             flexDirection: 'column',
-            filter: [
-                {
-                    blur: 20, // Adiciona um efeito de desfoque
-                },
-                {
-                    sepia: 0.3, // Adiciona um efeito de sépia
-                }
-            ].join(' '),
-        },
+            mixBlendMode: 'lighten',
+        }
+        ,
         layer: {
+            
             width: '100%',
+            mixBlendMode: 'multiply',
             
         },
     });

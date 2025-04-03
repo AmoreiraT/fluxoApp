@@ -38,7 +38,7 @@ const LoginScreen = () => {
         container: {
             flex: 1,
             justifyContent: 'flex-start',
-
+            mixBlendMode: 'lighten',
             width: '100%',
         },
         logo: {

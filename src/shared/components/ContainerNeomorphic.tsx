@@ -24,9 +24,9 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
             flexDirection: "column",
             justifyContent: "flex-start",
             ...theme.colors.elevation,
-            shadowColor: theme.extendedColors[2].color,
+            shadowColor: theme.extendedColors[0].color,
             shadowRadius: 30,
-            shadowOpacity: 0.8,
+            shadowOpacity: 0.80,
             borderStartColor: theme.extendedColors[3].color,
             borderEndColor: theme.extendedColors[3].color,
             borderTopColor: theme.extendedColors[2].color,
@@ -35,36 +35,38 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
                 width: 28,
                 height: 28,
             },
-            boxShadow: `2px -15 25 10px ${theme.extendedColors[2].color}`,
+            boxShadow: `-2 -15 25 10px ${theme.extendedColors[2].color}`,
 
         },
         neumorphicContainer: {
             
-            // backgroundColor: theme.colors.surface, // Usar a cor de superfície do tema
+            // backgroundColor: 'transparent', // Usar a cor de superfície do tema
             paddingHorizontal: 40,
             gap: 20,
             paddingTop: 20,
             paddingBottom: 60,
+
             display: 'flex',
             width: '100%',
             ...theme.colors.elevation, // Adicionar sombras baseadas no tema (se definido)
-            shadowColor: theme.extendedColors[2].color,
-            shadowRadius: 30,
-            shadowOpacity: 0.6,
+            shadowColor: theme.extendedColors[0].color,
+            shadowRadius: 40,
+            shadowOpacity: 0.8,
+            mixBlendMode: 'multiply',
             shadowOffset: {
                 width: 28,
                 height: 28,
             },
 
-            boxShadow: `-20 -20 2 10 ${theme.extendedColors[2].color}`,
+            // boxShadow: `-2 -20 20 10 ${theme.extendedColors[1].color}`,
         },
     });
 
     return (
         <View style={styles.container}>
               <CustomLinearGradient
-                colors={[theme.colors.primary, theme.colors.secondary]}
-                steps={50}
+                colors={[theme.extendedColors[0].color, theme.extendedColors[3].color]}
+                steps={5}
                 style={styles.container}
             >
                 
