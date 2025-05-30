@@ -3,9 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { IconSource } from 'react-native-paper/lib/typescript/components/Icon';
 import { CustomTheme } from '../../@types/theme';
-import { lightShadows, typographyTheme } from '../../themes';
+import { typographyTheme } from '../../themes';
 import { ThemeContext } from '../../themes/themeProvider';
-import { CustomLinearGradient } from './CustomLinearGradient';
 
 interface NeumorphicButtonProps {
     title: string;
@@ -24,24 +23,24 @@ const getModeColors = (mode: NeumorphicButtonProps['mode'], theme: CustomTheme) 
                 primary80: theme.palettes.primary[80],
                 primary20: theme.palettes.primary[20],
                 textColor: theme.colors.onPrimary,
-                buttonColor: theme.palettes.primary[80],
-                borderColor: theme.palettes.primary[80],
+                buttonColor: theme.palettes.primary[40],
+                borderColor: theme.palettes.primary[20],
             };
         case 'secondary':
             return {
                 primary80: theme.palettes.secondary[80],
                 primary20: theme.palettes.secondary[20],
                 textColor: theme.colors.onSecondary,
-                buttonColor: theme.palettes.secondary[80],
-                borderColor: theme.palettes.secondary[80],
+                buttonColor: theme.palettes.secondary[30],
+                borderColor: theme.palettes.secondary[20],
             };
         case 'tertiary':
             return {
                 primary80: theme.palettes.tertiary[80],
                 primary20: theme.palettes.tertiary[20],
                 textColor: theme.colors.onTertiary,
-                buttonColor: theme.palettes.tertiary[80],
-                borderColor: theme.palettes.tertiary[80],
+                buttonColor: theme.palettes.tertiary[60],
+                borderColor: theme.palettes.tertiary[20],
             };
         case 'outline':
             return {
@@ -84,41 +83,28 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
 
     const wrapperStyles = StyleSheet.create({
         wrapper: {
-            overflow: 'hidden',
             borderRadius: 25,
-            boxShadow: lightShadows[12],
-            ...typographyTheme.fonts.titleMedium,
-            shadowColor: theme.extendedColors[0].color,
-            elevation: 4,
-            shadowRadius: 30,
-            shadowOpacity: 0.9,
-            shadowOffset: {
-                width: 2,
-                height: 2,
-            },
-            opacity: disabled ? 0.6 : 0.8,
-            // backgroundColor: buttonColor,
-            filter: 'blur(200), opacity(0.9)',
-            ...theme.colors.elevation,
+            backgroundColor: buttonColor,
+            shadowColor: '#ffffff',
+            shadowOffset: { width: -6, height: -6 },
+            shadowOpacity: 1,
+            shadowRadius: 6,
+            elevation: 10,
         },
     });
 
     const buttonStyles = StyleSheet.create({
         button: {
-            backgroundColor: primary20,
-            // backfaceVisibility: 'hidden',
-            paddingVertical: 8,
+            backgroundColor: buttonColor,
+            paddingVertical: 10,
             paddingHorizontal: 20,
-            opacity: disabled ? 0.6 : 0.8,
-            boxShadow: lightShadows[12],
-            elevation: disabled ? 0 : 4,
-            ...theme.colors.elevation,
-            shadowColor: buttonColor,
-            shadowRadius: 30,
-            shadowOpacity: 0.6,
-            shadowOffset: { width: -28.615385055541992, height: -28.615385055541992 },
-
-            ...(mode === 'outline' && { borderWidth: 1, borderColor }),
+            mixBlendMode: 'overlay',
+            borderRadius: 25,
+            shadowColor: '#000000',
+            shadowOffset: { width: 6, height: 6 },
+            shadowOpacity: 0.2,
+            shadowRadius: 6,
+            elevation: 10,
         },
         label: {
             color: textColor,
@@ -136,12 +122,6 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
 
     return (
         <View style={wrapperStyles.wrapper}>
-        <CustomLinearGradient
-                colors={[primary80, buttonColor]}
-                steps={50}
-                style={buttonStyles.button}
-        >
-
             <Button
                 onPress={onPress}
                 mode={paperButtonMode}
@@ -151,10 +131,9 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
                 icon={icon}
                 labelStyle={buttonStyles.label}
                 style={buttonStyles.button}
-                >
+            >
                 {title}
             </Button>
-                </CustomLinearGradient>
         </View>
     );
 });

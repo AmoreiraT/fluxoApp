@@ -3,6 +3,8 @@
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictNullChecks": true,
+    "moduleResolution": "bundler",
     "jsx": "react-native",
     "types": ["@rnmapbox/maps"],
     "experimentalDecorators": true,

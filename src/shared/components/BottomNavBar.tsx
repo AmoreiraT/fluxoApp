@@ -26,8 +26,8 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({ onTabPress }) => {
     };
 
     return (
-        
-      
+
+
         <CustomLinearGradient colors={['#CBD5E9D8', '#192f6a']}
             steps={5}
 
@@ -37,19 +37,19 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({ onTabPress }) => {
             <View style={styles.navBar}>
                 {tabs.map((tab, index) => (
                     <TouchableOpacity
-                    key={index}
-                    style={styles.tabButton}
-                    onPress={() => onTabPress(tab)}
+                        key={index}
+                        style={styles.tabButton}
+                        onPress={() => onTabPress(tab)}
                     >
                         <Icon
                             source={getIconName(tab)}
                             size={24}
                             color="#4f378a"
-                            />
+                        />
                     </TouchableOpacity>
                 ))}
             </View>
-            </CustomLinearGradient>
+        </CustomLinearGradient>
     );
 };
 

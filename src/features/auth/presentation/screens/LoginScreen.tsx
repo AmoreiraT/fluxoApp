@@ -18,7 +18,7 @@ const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const authRepository = useAuthRepository();
-    const loginUseCase =  useLoginUseCase(authRepository);
+    const loginUseCase = useLoginUseCase(authRepository);
     const { theme } = useContext(ThemeContext);
     const navigation = useNavigation();
 
@@ -40,19 +40,24 @@ const LoginScreen = () => {
             justifyContent: 'flex-start',
             mixBlendMode: 'lighten',
             width: '100%',
+            height: '100%',
+            padding: 0,
         },
         logo: {
             flex: 1,
             justifyContent: 'center',
-
+            padding: 20,
             width: '100%',
             height: '100%',
+            boxSizing: 'border-box',
+            marginTop: 80,
+            mixBlendMode: 'multiply',
             ...theme.colors.elevation,
-            shadowColor: theme.extendedColors[0].color,
+            shadowColor: theme.colors.shadow,
             shadowRadius: 30,
-            shadowOpacity: 0.9,
+            shadowOpacity: 0.95,
             shadowOffset: {
-                width: 28,
+                width: 18,
                 height: 28,
             },
 
@@ -79,32 +84,32 @@ const LoginScreen = () => {
             <ImageBackground source={HomePng} style={styles.image} resizeMode="cover">
 
                 <ImageBackground source={LogoTipo} style={styles.logo} resizeMode="contain"></ImageBackground>
-                        
-            <ContainerNeomorphic>
+
+                <ContainerNeomorphic>
                     <View style={styles.loginConta}>
 
-                    <Text style={styles.title}>Faça seu Login</Text>
-                    <Text style={theme.fonts.labelLarge}>Ou crie uma conta.</Text>
+                        <Text style={styles.title}>Faça seu Login</Text>
+                        <Text style={theme.fonts.labelLarge}>Ou crie uma conta.</Text>
                     </View>
 
-            <InputField
-                label="Email"
-                value={email}
-                onChange={setEmail}
-                type="text"
-                />
-            <InputField
-                label="Senha"
-                value={password}
-                onChange={setPassword}
-                type="password"
-                // secureTextEntry
-                />
-                    <NeumorphicButton title="Entrar" onPress={handleLogin} mode='primary'/>
-                    <NeumorphicButton title="Cadastrar" onPress={handleLogin} mode='secondary'/>
+                    <InputField
+                        label="Email"
+                        value={email}
+                        onChange={setEmail}
+                        type="text"
+                    />
+                    <InputField
+                        label="Senha"
+                        value={password}
+                        onChange={setPassword}
+                        type="password"
+                    // secureTextEntry
+                    />
+                    <NeumorphicButton title="Entrar" onPress={handleLogin} mode='primary' />
+                    <NeumorphicButton title="Cadastrar" onPress={handleLogin} mode='secondary' />
 
-            </ContainerNeomorphic>
-                </ImageBackground>
+                </ContainerNeomorphic>
+            </ImageBackground>
         </View>
     );
 };

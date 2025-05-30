@@ -80,7 +80,8 @@
     "extra": {
       "eas": {
         "projectId": "2798a9b0-7c3c-4cda-af1c-fff11e4de992"
-      }
+      },
+      "storybookEnabled": true
     },
     "runtimeVersion": "1.0.0",
     "updates": {
