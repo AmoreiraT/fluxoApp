@@ -1,0 +1,30 @@
+{
+    "confirmedEvents": [
+        {
+            "id": 1,
+            "titulo": "Reunião de Planejamento",
+            "data": "2025-06-01 09:00",
+            "local": "Sala 12"
+        },
+        {
+            "id": 2,
+            "titulo": "Workshop de UX",
+            "data": "2025-06-03 14:00",
+            "local": "Auditório Principal"
+        }
+    ],
+    "suggestedEvents": [
+        {
+            "id": 101,
+            "titulo": "Palestra Tech Trends",
+            "data": "2025-06-10 17:00",
+            "local": "Sala 5"
+        },
+        {
+            "id": 102,
+            "titulo": "Encontro de Networking",
+            "data": "2025-06-12 19:00",
+            "local": "Lobby do Prédio 3"
+        }
+    ]
+}

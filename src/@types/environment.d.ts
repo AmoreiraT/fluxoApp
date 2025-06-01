@@ -6,8 +6,10 @@ declare global {
             EXPO_SECRET_MAPBOX_KEY: string;
         }
     }
+
 }
 
+declare module '*.png';
 // If this file has no import/export statements (i.e. is a script)
 // convert it into a module by adding an empty export statement.
 export { };
