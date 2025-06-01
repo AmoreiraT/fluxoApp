@@ -1,16 +1,41 @@
 // src/navigation/AppNavigator.tsx
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from '../features/auth/presentation/screens/LoginScreen';
-import { MapScreen } from '../features/maps/presentation/screens/MapScreen';
+import { useContext } from 'react';
+import MainNavigation from '../shared/components/NavigationAppbar';
+import { ThemeContext } from '../themes/themeProvider';
 
 const Stack = createStackNavigator();
 
-export const AppNavigator: React.FC = () => (
-    <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
-            <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Mapa' }} />
-        </Stack.Navigator>
-    </NavigationContainer>
-);
+export const AppNavigator: React.FC = () => {
+    const { theme } = useContext(ThemeContext);
+
+    return (
+
+        <NavigationContainer
+            theme={{
+                ...DefaultTheme,
+                ...theme,
+                fonts: DefaultTheme.fonts,
+                colors: {
+                    ...DefaultTheme.colors,
+                    ...theme.colors,
+                    card: theme.colors.primary,
+                    text: theme.colors.primary,
+                    border: theme.colors.primary,
+                    notification: theme.colors.primary
+                }
+            }}
+        >
+
+            <MainNavigation user={{
+                name: 'Usuário Exemplo',
+                location: 'Localização Exemplo',
+                avatar: 'https://i.pravatar.cc/150?img=1'
+
+                /* populate required User properties here */
+            }} />
+
+        </NavigationContainer>
+    )
+};
