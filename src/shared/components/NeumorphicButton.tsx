@@ -96,15 +96,15 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
     const buttonStyles = StyleSheet.create({
         button: {
             backgroundColor: buttonColor,
-            paddingVertical: 10,
-            paddingHorizontal: 20,
+            paddingVertical: 1,
+            paddingHorizontal: 8,
             mixBlendMode: 'overlay',
             borderRadius: 25,
             shadowColor: '#000000',
             shadowOffset: { width: 6, height: 6 },
-            shadowOpacity: 0.2,
-            shadowRadius: 6,
-            elevation: 10,
+            shadowOpacity: 0.4,
+            shadowRadius: 20,
+            elevation: 8,
         },
         label: {
             color: textColor,
@@ -113,7 +113,7 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
 
             textShadowOffset: { width: -28.615385055541992, height: -28.615385055541992 },
 
-            ...typographyTheme.fonts.titleLarge,
+            ...typographyTheme.fonts.titleMedium,
             textTransform: 'uppercase',
         },
     });

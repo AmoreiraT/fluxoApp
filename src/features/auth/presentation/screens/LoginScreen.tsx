@@ -12,7 +12,6 @@ const HomePng = require('./../../../../assets/png/Home.png');
 const LogoTipo = require('./../../../../assets/png/logoTipo.png');
 
 
-const LogoSvg = require('./../../../../assets/svg/logotipo.svg');
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -25,7 +24,9 @@ const LoginScreen = () => {
     const handleLogin = async () => {
         try {
             // loginUseCase.execute({ email, password });
-            navigation.navigate('Map');
+            navigation.navigate(
+                'Map'
+            );
 
             // Navegar para a tela principal
         } catch (error) {

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "817465462229",
+    "project_id": "fluxo-docs",
+    "storage_bucket": "fluxo-docs.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817465462229:android:0ac0afc26c3d963ba5c15c",
+        "android_client_info": {
+          "package_name": "fluxo.ath.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3FH5RHRQsL9YP9AfO57MP-isT-SgAbdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

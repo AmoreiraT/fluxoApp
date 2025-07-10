@@ -42,6 +42,7 @@
     "expo-status-bar": "2.0.2-canary-20250320-7a205d3",
     "expo-system-ui": "5.0.0-canary-20250320-7a205d3",
     "expo-updates": "1.0.0-canary-20250320-7a205d3",
+    "firebase": "^11.10.0",
     "install": "^0.13.0",
     "react": "19.0.0",
     "react-native": "0.79.0-rc.0",
@@ -58,7 +59,7 @@
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@gorhom/bottom-sheet": "^5.1.5",
-    "@react-native-async-storage/async-storage": "^2.1.2",
+    "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-native-community/cli": "^18.0.0",
     "@react-native-community/datetimepicker": "^8.4.1",
     "@react-native-community/slider": "^4.5.7",
