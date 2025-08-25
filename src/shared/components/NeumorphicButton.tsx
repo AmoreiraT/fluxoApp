@@ -20,18 +20,18 @@ const getModeColors = (mode: NeumorphicButtonProps['mode'], theme: CustomTheme) 
     switch (mode) {
         case 'primary':
             return {
-                primary80: theme.palettes.primary[80],
-                primary20: theme.palettes.primary[20],
+                primary80: theme.palettes.primary[0],
+                primary20: theme.palettes.primary[5],
                 textColor: theme.colors.onPrimary,
-                buttonColor: theme.palettes.primary[40],
-                borderColor: theme.palettes.primary[20],
+                buttonColor: theme.palettes.primary[15],
+                borderColor: theme.palettes.primary[0],
             };
         case 'secondary':
             return {
-                primary80: theme.palettes.secondary[80],
-                primary20: theme.palettes.secondary[20],
+                primary80: theme.palettes.secondary[5],
+                primary20: theme.palettes.secondary[15],
                 textColor: theme.colors.onSecondary,
-                buttonColor: theme.palettes.secondary[30],
+                buttonColor: theme.palettes.secondary[15],
                 borderColor: theme.palettes.secondary[20],
             };
         case 'tertiary':

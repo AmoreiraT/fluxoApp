@@ -18,6 +18,8 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
             width: '100%',
             // height: '50%',
             // justifyContent: 'center',
+            // backgroundColor: 'transparent', // Usar a cor de superfície do tema
+
             backgroundColor: theme.colors.background, // Usar a cor de fundo do tema
             borderRadius: 30,
             overflow: 'hidden',
@@ -40,7 +42,7 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
         },
         neumorphicContainer: {
 
-            // backgroundColor: 'transparent', // Usar a cor de superfície do tema
+            backgroundColor: 'transparent', // Usar a cor de superfície do tema
             paddingHorizontal: 20,
             gap: 20,
             paddingTop: 20,
@@ -52,13 +54,14 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
             shadowColor: theme.extendedColors[2].color,
             shadowRadius: 50,
             shadowOpacity: 0.8,
-            mixBlendMode: 'overlay',
+            // boxShadow: `-2 -15 25 20px ${theme.extendedColors[0].color}`,
+            mixBlendMode: 'soft-light',
             shadowOffset: {
                 width: 28,
                 height: 18,
             },
 
-            // boxShadow: `-2 -20 20 10 ${theme.extendedColors[2].color}`,
+            boxShadow: `-2 -20 20 10 ${theme.extendedColors[2].color}`,
         },
     });
 

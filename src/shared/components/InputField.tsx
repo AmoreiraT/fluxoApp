@@ -2,7 +2,7 @@ import React, { FC, useContext, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TextInput as PaperTextInput } from 'react-native-paper';
 import { IconSource } from 'react-native-paper/lib/typescript/components/Icon';
-import { lightShadows, typographyTheme } from '../../themes';
+import { typographyTheme } from '../../themes';
 import { ThemeContext } from '../../themes/themeProvider';
 
 interface InputFieldProps {
@@ -46,10 +46,11 @@ export const InputField: FC<InputFieldProps> = ({
 
     const styles = StyleSheet.create({
         container: {
+
             width: '100%',
             borderRadius: 25,
             overflow: 'hidden',
-            shadowColor: theme.extendedColors[1].color,
+            shadowColor: theme.extendedColors[0].color,
             // elevation: 4,
             shadowRadius: 30,
             shadowOpacity: 0.8,
@@ -59,30 +60,30 @@ export const InputField: FC<InputFieldProps> = ({
             },
             opacity: disabled ? 0.6 : 0.8,
             backgroundColor: theme.colors.background,
-            filter: 'blur(10), opacity(0.8)',
+            filter: 'blur(50), opacity(0.9)',
             ...theme.colors.elevation,
-            boxShadow: lightShadows[0],
+            // boxShadow: lightShadows[18],
             textDecorationColor: theme.colors.outline,
 
 
         },
         input: {
-            backgroundColor: theme.colors.surface,
-            paddingHorizontal: 20,
+            // backgroundColor: theme.colors.surface.,
+            paddingHorizontal: 12,
             // paddingVertical: 5,
             // borderRadius: 10,
             ...typographyTheme.fonts.bodyMedium,
-            boxShadow: lightShadows[12],
+            // boxShadow: lightShadows[9],
             elevation: disabled ? 0 : 1,
             textTransform: 'uppercase',
             ...theme.colors.elevation,
-            filter: 'blur(50), opacity(0.9)',
-            fontWeight: '600',
-            shadowColor: theme.extendedColors[3].color,
+            // filter: 'blur(50), opacity(0.9)',
+            fontWeight: '400',
+            shadowColor: theme.extendedColors[0].color,
             color: theme.colors.outline,
 
             shadowRadius: 60,
-            shadowOpacity: 0.6,
+            shadowOpacity: 0.75,
             shadowOffset: {
                 width: 58,
                 height: 38,
@@ -120,6 +121,7 @@ export const InputField: FC<InputFieldProps> = ({
                 left={leftIcon ? getIcon(leftIcon) : undefined}
                 mode={mode}
                 dense={dense}
+
                 outlineColor={'transparent'}
                 selectionColor={theme.colors.onBackground}
                 disabled={disabled}

@@ -24,7 +24,7 @@ export const App: FC = () => {
   );
 };
 
-let AppEntryPoint = App;
+let AppEntryPoint = () => <App />;
 
 if (Constants.expoConfig?.extra?.storybookEnabled === "true") {
   AppEntryPoint = require("./.rnstorybook").default;

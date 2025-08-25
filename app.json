@@ -5,9 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/svg/logo.svg",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -52,36 +50,21 @@
       [
         "expo-build-properties",
         {
-          "android": {
-          }
+          "android": {}
         }
       ],
-      [
-        "expo-dev-client",
-        {}
-      ],
-      [
-        "expo-dev-launcher",
-        {}
-      ],
-      [
-        "expo-system-ui",
-        {}
-      ],
-      [
-        "expo-updates",
-        {}
-      ],
-      [
-        "expo-font",
-        {}
-      ]
+      ["expo-dev-client", {}],
+      ["expo-dev-launcher", {}],
+      ["expo-system-ui", {}],
+      ["expo-updates", {}],
+      ["expo-font", {}]
     ],
     "extra": {
       "eas": {
         "projectId": "2798a9b0-7c3c-4cda-af1c-fff11e4de992"
       },
-      "storybookEnabled": true
+      "storybookEnabled": true,
+      "apiUrl": "process.env.EXPO_PUBLIC_API_URL" // ← isso precisa existir
     },
     "runtimeVersion": "1.0.0",
     "updates": {
