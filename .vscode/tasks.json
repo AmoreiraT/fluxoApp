@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Expo",
+      "type": "shell",
+      "command": "yarn start",
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Android",
+      "type": "shell",
+      "command": "yarn android",
+      "problemMatcher": []
+    },
+    {
+      "label": "Start iOS",
+      "type": "shell",
+      "command": "yarn ios",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean Project",
+      "type": "shell",
+      "command": "yarn clean:all",
+      "problemMatcher": []
+    },
+    {
+      "label": "Reset Metro Cache",
+      "type": "shell",
+      "command": "yarn reset-cache",
+      "problemMatcher": []
+    }
+  ]
+}

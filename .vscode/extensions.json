@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "msjsdiag.vscode-react-native",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "dsznajder.es7-react-js-snippets",
+    "eamodio.gitlens",
+    "github.copilot",
+    "github.copilot-chat",
+    "christian-kohler.npm-intellisense",
+    "formulahendry.auto-rename-tag",
+    "formulahendry.auto-close-tag",
+    "mikestead.dotenv",
+    "naumovs.color-highlight",
+    "pkief.material-icon-theme",
+    "wayou.vscode-todo-highlight",
+    "wix.vscode-import-cost"
+  ]
+}

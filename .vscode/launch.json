@@ -2,10 +2,38 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "expo",
+      "name": "Debug Expo",
+      "request": "launch",
+      "type": "reactnative",
+      "cwd": "${workspaceFolder}",
+      "platform": "exponent",
+      "sourceMaps": true,
+      "enableDebug": true
+    },
+    {
+      "name": "Attach to Expo",
       "request": "attach",
-      "name": "Debug Expo Dev Client",
-      "projectRoot": "${workspaceFolder}"
+      "type": "reactnative",
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+    },
+    {
+      "name": "Debug Android",
+      "request": "launch",
+      "type": "reactnative",
+      "cwd": "${workspaceFolder}",
+      "enableDebug": true,
+      "platform": "android",
+      "sourceMaps": true,
+    },
+    {
+      "name": "Debug iOS",
+      "request": "launch",
+      "type": "reactnative",
+      "cwd": "${workspaceFolder}",
+      "enableDebug": true,
+      "platform": "ios",
+      "sourceMaps": true,
     }
   ]
 }
