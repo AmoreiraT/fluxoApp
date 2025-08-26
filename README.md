@@ -15,6 +15,36 @@
 </div>
 
 ---
+
+## 🔧 iOS Build Configuration
+
+This project includes fixes for iOS build shell compatibility issues. If you encounter errors like:
+- `Error: Oh My Zsh can't be loaded from: bash. You need to run zsh instead.`
+- `env: bash: No such file or directory`
+
+The project is already configured with the following fixes:
+
+### Shell Environment Configuration
+- `ios/.xcode.env` - Properly configured shell environment
+- `ios/.xcode.env.local` - Local overrides (create if needed)
+- `scripts/ios-build-wrapper.sh` - Build wrapper script
+
+### Build Commands
+```bash
+# Clean iOS build
+npm run ios:clean
+
+# Build iOS project
+npm run ios:build
+
+# Standard Expo commands
+npm run ios
+expo run:ios
+```
+
+For detailed information about the iOS build fixes, see [docs/ios-build-fix.md](docs/ios-build-fix.md).
+
+---
 ## 📂 Source Code Structure
 
 The `src` directory contains the main application code organized as follows:
