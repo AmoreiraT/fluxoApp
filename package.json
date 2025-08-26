@@ -7,6 +7,8 @@
     "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
+    "ios:clean": "cd ios && xcodebuild clean -workspace fluxoApp.xcworkspace -scheme fluxoApp && cd ..",
+    "ios:build": "cd ios && SHELL=/bin/bash xcodebuild -workspace fluxoApp.xcworkspace -scheme fluxoApp -destination 'platform=iOS Simulator,name=iPhone 14' build && cd ..",
     "web": "expo start --web",
     "storybook": "cross-env STORYBOOK_ENABLED=true react-native start",
     "storybook:ios": "cross-env STORYBOOK_ENABLED=true react-native run-ios",
