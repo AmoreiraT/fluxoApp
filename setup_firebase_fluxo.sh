@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eo pipefail
 
 echo "🔧 Iniciando setup do projeto Firebase Fluxo..."
 
@@ -6,7 +8,7 @@ echo "🔧 Iniciando setup do projeto Firebase Fluxo..."
 if ! command -v firebase &> /dev/null
 then
     echo "❌ Firebase CLI não encontrada. Instale com: npm install -g firebase-tools"
-    exit
+    exit 1
 fi
 
 # Login no Firebase
