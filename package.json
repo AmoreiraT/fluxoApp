@@ -20,6 +20,8 @@
     "@expo/config-plugins": "~9.0.17",
     "@expo/prebuild-config": "~8.0.29",
     "@react-native-community/netinfo": "^11.4.1",
+    "@react-native-firebase/app": "^23.2.0",
+    "@react-native-firebase/auth": "^23.2.0",
     "@react-native-google-signin/google-signin": "^13.2.0",
     "@react-native-masked-view/masked-view": "^0.3.2",
     "@react-native-vector-icons/material-design-icons": "^12.0.0",
