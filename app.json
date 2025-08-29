@@ -28,7 +28,7 @@
         "android.permission.ACCESS_FINE_LOCATION"
       ],
       "googleServicesFile": "./google-services.json",
-      
+
       "package": "fluxo.ath.app"
     },
     "web": {
@@ -54,12 +54,9 @@
           "android": {}
         }
       ],
-      ["expo-dev-client", {}],
       ["expo-system-ui", {}],
       ["expo-updates", {}],
-      ["expo-font", {}],
-      "@react-native-firebase/app",
-      ["@react-native-firebase/auth", {}]
+      ["expo-font", {}]
     ],
     "extra": {
       "eas": {
