@@ -34,15 +34,18 @@ export const CustomLinearGradient: React.FC<CustomLinearGradientProps> = ({
 
     const styles = StyleSheet.create({
         container: {
+            // flexDirection: 'column',
+            display: 'flex',
             flexDirection: 'column',
-            mixBlendMode: 'lighten',
+            backgroundColor: 'transparent',
         }
         ,
         layer: {
-            
+
             width: '100%',
+            height: '100%',
             mixBlendMode: 'multiply',
-            
+
         },
     });
 

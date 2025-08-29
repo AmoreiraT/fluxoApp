@@ -15,7 +15,8 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "fluxo.ath.app"
+      "bundleIdentifier": "fluxo.ath.app",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,6 +27,8 @@
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION"
       ],
+      "googleServicesFile": "./google-services.json",
+      
       "package": "fluxo.ath.app"
     },
     "web": {
@@ -52,17 +55,18 @@
         }
       ],
       ["expo-dev-client", {}],
-      ["expo-dev-launcher", {}],
       ["expo-system-ui", {}],
       ["expo-updates", {}],
-      ["expo-font", {}]
+      ["expo-font", {}],
+      "@react-native-firebase/app",
+      ["@react-native-firebase/auth", {}]
     ],
     "extra": {
       "eas": {
         "projectId": "2798a9b0-7c3c-4cda-af1c-fff11e4de992"
       },
       "storybookEnabled": true,
-      "apiUrl": "process.env.EXPO_PUBLIC_API_URL" // ← isso precisa existir
+      "apiUrl": "process.env.EXPO_PUBLIC_API_URL"
     },
     "runtimeVersion": "1.0.0",
     "updates": {

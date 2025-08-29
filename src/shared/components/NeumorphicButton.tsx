@@ -98,7 +98,7 @@ const NeumorphicButtonComponent: FC<NeumorphicButtonProps> = memo(({
             backgroundColor: buttonColor,
             paddingVertical: 1,
             paddingHorizontal: 8,
-            mixBlendMode: 'overlay',
+            // mixBlendMode: 'overlay',
             borderRadius: 25,
             shadowColor: '#000000',
             shadowOffset: { width: 6, height: 6 },

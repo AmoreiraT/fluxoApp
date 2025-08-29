@@ -4,7 +4,6 @@ exports.auth = exports.app = void 0;
 const async_storage_1 = require("@react-native-async-storage/async-storage");
 const app_1 = require("firebase/app");
 const auth_1 = require("firebase/auth");
-const react_native_1 = require("firebase/auth/react-native");
 const firebaseConfig = {
     apiKey: "AIzaSyB1I9UNydrnxXrXmqzJx60ZWcngxV3MOW0",
     authDomain: "fluxo-docs.firebaseapp.com",
@@ -17,7 +16,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = (0, app_1.initializeApp)(firebaseConfig);
 exports.app = app;
+// initialize auth with AsyncStorage for React Native
 const auth = (0, auth_1.initializeAuth)(app, {
-    persistence: (0, react_native_1.getReactNativePersistence)(async_storage_1.default),
+    persistence: (0, auth_1.getReactNativePersistence)(async_storage_1.default),
 });
 exports.auth = auth;

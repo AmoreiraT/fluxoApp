@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { StyleSheet, View } from 'react-native';
-import { ThemeContext } from "../../themes/themeProvider";
+import { useThemeContext } from "../../themes/themeProvider";
 import { CustomLinearGradient } from "./CustomLinearGradient";
 
 interface ContainerNeomorphicProps {
@@ -8,23 +7,25 @@ interface ContainerNeomorphicProps {
 }
 
 export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
-    const { theme } = useContext(ThemeContext);
+    const { theme } = useThemeContext();
 
     // Criar estilos dinamicamente usando as propriedades do tema
     const styles = StyleSheet.create({
         container: {
             // gap: 20,
-            // display: 'flex',
+            display: 'flex',
             width: '100%',
-            // height: '50%',
+            height: 'auto',
             // justifyContent: 'center',
             // backgroundColor: 'transparent', // Usar a cor de superfície do tema
+            position: 'relative',
 
-            backgroundColor: theme.colors.background, // Usar a cor de fundo do tema
+            backgroundColor: `${theme.colors.background}`, // Usar a cor de fundo do tema
             borderRadius: 30,
             overflow: 'hidden',
             flexDirection: "column",
             justifyContent: "flex-start",
+
             ...theme.colors.elevation,
             shadowColor: theme.extendedColors[0].color,
             shadowRadius: 20,
@@ -42,14 +43,17 @@ export const ContainerNeomorphic = ({ children }: ContainerNeomorphicProps) => {
         },
         neumorphicContainer: {
 
-            backgroundColor: 'transparent', // Usar a cor de superfície do tema
+            // backgroundColor: 'transparent', // Usar a cor de superfície do tema
             paddingHorizontal: 20,
             gap: 20,
             paddingTop: 20,
             paddingBottom: 60,
-
+            position: 'relative',
             display: 'flex',
-            // width: '100%',
+            flexDirection: 'column',
+
+            width: '100%',
+            height: 'auto',
             ...theme.colors.elevation, // Adicionar sombras baseadas no tema (se definido)
             shadowColor: theme.extendedColors[2].color,
             shadowRadius: 50,

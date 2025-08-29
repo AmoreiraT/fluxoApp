@@ -1,39 +1,37 @@
-import { ApiResponse } from "../../../../core/infrastructure/http/protocols";
-import { useHttpClient } from "../../../../core/infrastructure/http/useHttpClient";
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { User } from "../../domain/entities/User";
 import { AuthRepository } from "../../domain/repositories/AuthRepository";
 
 export class AuthRepositoryImpl implements AuthRepository {
-    private httpClient = useHttpClient();
+    private confirmationResult: FirebaseAuthTypes.ConfirmationResult | null = null;
 
-    async fetch(params: { email: string; password: string }): Promise<User> {
-        return this.login(params);
+    async fetch(params: { phone: string }): Promise<User> {
+        throw new Error('Not implemented.');
     }
 
-    async login(credentials: { email: string; password: string }): Promise<User> {
-        const response: ApiResponse<User> = await this.httpClient.sendApiRequest({
-            url: '/auth/login',
-            method: 'POST',
-            body: credentials,
-        });
+    async sendSmsCode(phone: string): Promise<void> {
+        this.confirmationResult = await auth().signInWithPhoneNumber(phone);
+    }
 
-        if (response instanceof Error) {
-            throw response;
+    async loginWithPhone(phone: string, code: string): Promise<User> {
+        if (!this.confirmationResult) {
+            throw new Error("SMS code not requested yet");
         }
 
-        if('data' in response && 'error' in response.data) {
-            throw response.data.error;
-        }
+        const credential = auth.PhoneAuthProvider.credential(
+            this.confirmationResult.verificationId,
+            code
+        );
 
-        if (!('data' in response) || !('id' in response.data)) {
-            throw new Error('Invalid response format');
-        }
+        const result = await auth().signInWithCredential(credential);
+
+        const firebaseUser = result.user;
 
         return {
-            id: response.data.id,
-            email: response.data.email,
-            name: response.data.name,
-            token: response.data.token,
+            id: firebaseUser.uid,
+            name: firebaseUser.displayName ?? '',
+            email: firebaseUser.email ?? '',
+            token: await firebaseUser.getIdToken()
         };
     }
 }

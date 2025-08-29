@@ -1,10 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext, useState } from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { ContainerNeomorphic } from '../../../../shared/components/ContainerNeomorphic';
 import { InputField } from '../../../../shared/components/InputField';
 import { NeumorphicButton } from '../../../../shared/components/NeumorphicButton';
-import { ThemeContext } from '../../../../themes/themeProvider';
+import { useThemeContext } from '../../../../themes';
 import { useLoginUseCase } from '../../domain/usecases/LoginUseCase';
 import { useAuthRepository } from '../../hooks/useAuthRepository';
 
@@ -14,21 +14,27 @@ const LogoTipo = require('./../../../../assets/png/logoTipo.png');
 
 
 const LoginScreen = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [phone, setPhone] = useState('');
+    const [code, setCode] = useState('');
+    const [codeSent, setCodeSent] = useState(false);
     const authRepository = useAuthRepository();
     const loginUseCase = useLoginUseCase(authRepository);
-    const { theme } = useContext(ThemeContext);
+    const { theme } = useThemeContext();
     const navigation = useNavigation();
+
+    const handleSendSms = async () => {
+        try {
+            await authRepository.sendSmsCode(phone);
+            setCodeSent(true);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     const handleLogin = async () => {
         try {
-            // loginUseCase.execute({ email, password });
-            navigation.navigate(
-                'Map'
-            );
-
-            // Navegar para a tela principal
+            loginUseCase.execute({ phone, code });
+            navigation.navigate('Map');
         } catch (error) {
             console.error(error);
         }
@@ -39,7 +45,9 @@ const LoginScreen = () => {
         container: {
             flex: 1,
             justifyContent: 'flex-start',
-            mixBlendMode: 'lighten',
+            // mixBlendMode: 'lighten',
+            // backgroundColor: '#FBAF5D', // Adicione uma cor de fundo visível para teste
+
             width: '100%',
             height: '100%',
             padding: 0,
@@ -47,13 +55,11 @@ const LoginScreen = () => {
         logo: {
             flex: 1,
             justifyContent: 'center',
-            padding: 20,
+            padding: 5,
             width: '100%',
-            height: '100%',
-            boxSizing: 'border-box',
-            marginTop: 80,
-            mixBlendMode: 'multiply',
-            ...theme.colors.elevation,
+            // height: '20%',
+            marginTop: 0,
+            backgroundColor: 'transparent',
             shadowColor: theme.colors.shadow,
             shadowRadius: 30,
             shadowOpacity: 0.95,
@@ -61,17 +67,24 @@ const LoginScreen = () => {
                 width: 18,
                 height: 28,
             },
-
         },
         loginConta: {
             display: 'flex',
+            width: '100%',
+            // height: '20%',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: 10,
+            gap: 20,
         },
         image: {
             flex: 1,
-            justifyContent: 'flex-end',
+            width: '100%',
+            height: '100%',
+            // display: 'flex',
+
+            // flexDirection: 'column',
+            position: 'relative',
+            // justifyContent: 'flex-start',
         },
         title: {
             fontSize: 24,
@@ -83,32 +96,25 @@ const LoginScreen = () => {
     return (
         <View style={styles.container}>
             <ImageBackground source={HomePng} style={styles.image} resizeMode="cover">
-
-                <ImageBackground source={LogoTipo} style={styles.logo} resizeMode="contain"></ImageBackground>
-
+                <View style={styles.logo}>
+                    <Image source={LogoTipo} style={{ width: '100%', height: '60%', resizeMode: 'contain' }} />
+                </View>
                 <ContainerNeomorphic>
                     <View style={styles.loginConta}>
-
                         <Text style={styles.title}>Faça seu Login</Text>
                         <Text style={theme.fonts.labelLarge}>Ou crie uma conta.</Text>
                     </View>
-
-                    <InputField
-                        label="Email"
-                        value={email}
-                        onChange={setEmail}
-                        type="text"
-                    />
-                    <InputField
-                        label="Senha"
-                        value={password}
-                        onChange={setPassword}
-                        type="password"
-                    // secureTextEntry
-                    />
-                    <NeumorphicButton title="Entrar" onPress={handleLogin} mode='primary' />
-                    <NeumorphicButton title="Cadastrar" onPress={handleLogin} mode='secondary' />
-
+                    {!codeSent ? (
+                        <>
+                            <InputField label="Telefone" value={phone} onChange={setPhone} type="text" />
+                            <NeumorphicButton title="Enviar código" onPress={handleSendSms} mode='primary' />
+                        </>
+                    ) : (
+                        <>
+                            <InputField label="Código SMS" value={code} onChange={setCode} type="text" />
+                            <NeumorphicButton title="Entrar" onPress={handleLogin} mode='primary' />
+                        </>
+                    )}
                 </ContainerNeomorphic>
             </ImageBackground>
         </View>
