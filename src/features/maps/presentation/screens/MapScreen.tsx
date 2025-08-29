@@ -61,6 +61,8 @@ export const MapScreen: FC<MapScreenProps> = () => {
                     zoomEnabled={true}
                     scrollEnabled={true}
                     rotateEnabled={true}
+                    collapsable={true}
+                    
                     projection='globe'
                     shouldRasterizeIOS={true}
                     attributionEnabled={true}
